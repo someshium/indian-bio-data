@@ -1,0 +1,255 @@
+<div class="border-layer" aria-hidden="true">
+  <ng-container [ngSwitch]="borderArtId">
+    <!-- Silver Vine -->
+    <svg
+      *ngSwitchCase="'silver-vine'"
+      class="border-svg"
+      viewBox="0 0 210 297"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient [attr.id]="'bv-sv-lin-' + sid" x1="0" y1="0" x2="210" y2="0">
+          <stop offset="0" stop-color="#d7e0e7" stop-opacity="0.25" />
+          <stop offset="0.25" stop-color="#f2f5f8" stop-opacity="0.95" />
+          <stop offset="0.6" stop-color="#cbd6de" stop-opacity="0.45" />
+          <stop offset="1" stop-color="#f6fbff" stop-opacity="0.85" />
+        </linearGradient>
+        <radialGradient [attr.id]="'bv-sv-rad-' + sid" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stop-color="#ffffff" stop-opacity="0.95" />
+          <stop offset="1" stop-color="#cbd6de" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+
+      <rect
+        x="6"
+        y="10"
+        width="198"
+        height="277"
+        rx="10"
+        fill="none"
+        [attr.stroke]="'url(#bv-sv-lin-' + sid + ')'"
+        stroke-width="1.15"
+      />
+
+      <path
+        d="M18 20 C 26 28, 26 38, 18 46 C 10 54, 10 64, 18 72"
+        fill="none"
+        [attr.stroke]="'url(#bv-sv-lin-' + sid + ')'"
+        stroke-width="0.85"
+        stroke-linecap="round"
+      />
+      <path
+        d="M192 20 C 184 28, 184 38, 192 46 C 200 54, 200 64, 192 72"
+        fill="none"
+        [attr.stroke]="'url(#bv-sv-lin-' + sid + ')'"
+        stroke-width="0.85"
+        stroke-linecap="round"
+      />
+      <path
+        d="M18 266 C 26 258, 26 248, 18 240 C 10 232, 10 222, 18 214"
+        fill="none"
+        [attr.stroke]="'url(#bv-sv-lin-' + sid + ')'"
+        stroke-width="0.85"
+        stroke-linecap="round"
+      />
+      <path
+        d="M192 266 C 184 258, 184 248, 192 240 C 200 232, 200 222, 192 214"
+        fill="none"
+        [attr.stroke]="'url(#bv-sv-lin-' + sid + ')'"
+        stroke-width="0.85"
+        stroke-linecap="round"
+      />
+
+      <path
+        d="M34 14 C 52 28, 76 28, 94 14"
+        fill="none"
+        [attr.stroke]="'url(#bv-sv-lin-' + sid + ')'"
+        stroke-width="0.85"
+        stroke-linecap="round"
+      />
+      <path
+        d="M116 14 C 134 28, 158 28, 176 14"
+        fill="none"
+        [attr.stroke]="'url(#bv-sv-lin-' + sid + ')'"
+        stroke-width="0.85"
+        stroke-linecap="round"
+      />
+      <path
+        d="M34 283 C 52 269, 76 269, 94 283"
+        fill="none"
+        [attr.stroke]="'url(#bv-sv-lin-' + sid + ')'"
+        stroke-width="0.85"
+        stroke-linecap="round"
+      />
+      <path
+        d="M116 283 C 134 269, 158 269, 176 283"
+        fill="none"
+        [attr.stroke]="'url(#bv-sv-lin-' + sid + ')'"
+        stroke-width="0.85"
+        stroke-linecap="round"
+      />
+
+      <g opacity="0.9">
+        <circle cx="21" cy="31" r="2.2" [attr.fill]="'url(#bv-sv-rad-' + sid + ')'" />
+        <circle cx="189" cy="31" r="2.2" [attr.fill]="'url(#bv-sv-rad-' + sid + ')'" />
+        <circle cx="21" cy="266" r="2.2" [attr.fill]="'url(#bv-sv-rad-' + sid + ')'" />
+        <circle cx="189" cy="266" r="2.2" [attr.fill]="'url(#bv-sv-rad-' + sid + ')'" />
+      </g>
+
+      <g fill="none" [attr.stroke]="'url(#bv-sv-lin-' + sid + ')'" stroke-width="0.75" opacity="0.95">
+        <path d="M22 22 c2.6 1.6 2.6 4.6 0 6.2 c-2.6-1.6-2.6-4.6 0-6.2Z" />
+        <path d="M188 22 c2.6 1.6 2.6 4.6 0 6.2 c-2.6-1.6-2.6-4.6 0-6.2Z" />
+        <path d="M22 268 c2.6 1.6 2.6 4.6 0 6.2 c-2.6-1.6-2.6-4.6 0-6.2Z" />
+        <path d="M188 268 c2.6 1.6 2.6 4.6 0 6.2 c-2.6-1.6-2.6-4.6 0-6.2Z" />
+      </g>
+    </svg>
+
+    <!-- Golden Mandala -->
+    <svg
+      *ngSwitchCase="'golden-mandala'"
+      class="border-svg"
+      viewBox="0 0 210 297"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient [attr.id]="'bv-gd-lin-' + sid" x1="0" y1="0" x2="210" y2="0">
+          <stop offset="0" stop-color="#6f4c18" stop-opacity="0.4" />
+          <stop offset="0.22" stop-color="#f6d36a" stop-opacity="0.95" />
+          <stop offset="0.55" stop-color="#d6a73b" stop-opacity="0.7" />
+          <stop offset="1" stop-color="#f7e0a6" stop-opacity="0.95" />
+        </linearGradient>
+      </defs>
+
+      <rect
+        x="2.75"
+        y="3.5"
+        width="204.5"
+        height="290"
+        rx="10"
+        fill="none"
+        [attr.stroke]="'url(#bv-gd-lin-' + sid + ')'"
+        stroke-width="1.25"
+        opacity="0.95"
+      />
+    </svg>
+
+    <!-- Silver Arch -->
+    <svg
+      *ngSwitchCase="'silver-arch'"
+      class="border-svg"
+      viewBox="0 0 210 297"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient [attr.id]="'bv-ar-lin-' + sid" x1="0" y1="0" x2="0" y2="297">
+          <stop offset="0" stop-color="#eef5ff" stop-opacity="0.9" />
+          <stop offset="0.3" stop-color="#c8d5df" stop-opacity="0.55" />
+          <stop offset="0.7" stop-color="#f9fdff" stop-opacity="0.85" />
+          <stop offset="1" stop-color="#b9cbd6" stop-opacity="0.5" />
+        </linearGradient>
+        <radialGradient [attr.id]="'bv-ar-rad-' + sid" cx="0.5" cy="0.5" r="0.6">
+          <stop offset="0" stop-color="#ffffff" stop-opacity="0.95" />
+          <stop offset="1" stop-color="#c8d5df" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+
+      <rect
+        x="6.5"
+        y="11"
+        width="197"
+        height="275"
+        rx="10"
+        fill="none"
+        [attr.stroke]="'url(#bv-ar-lin-' + sid + ')'"
+        stroke-width="1.1"
+      />
+
+      <path
+        d="M30 35 C 65 5, 145 5, 180 35"
+        fill="none"
+        [attr.stroke]="'url(#bv-ar-lin-' + sid + ')'"
+        stroke-width="0.85"
+        stroke-linecap="round"
+      />
+      <path
+        d="M30 262 C 65 292, 145 292, 180 262"
+        fill="none"
+        [attr.stroke]="'url(#bv-ar-lin-' + sid + ')'"
+        stroke-width="0.85"
+        stroke-linecap="round"
+      />
+
+      <path
+        d="M15 58 C 22 70, 22 82, 15 94 C 22 106, 22 118, 15 130"
+        fill="none"
+        [attr.stroke]="'url(#bv-ar-lin-' + sid + ')'"
+        stroke-width="0.8"
+        stroke-linecap="round"
+      />
+      <path
+        d="M195 58 C 188 70, 188 82, 195 94 C 188 106, 188 118, 195 130"
+        fill="none"
+        [attr.stroke]="'url(#bv-ar-lin-' + sid + ')'"
+        stroke-width="0.8"
+        stroke-linecap="round"
+      />
+
+      <g opacity="0.9">
+        <circle cx="22" cy="72" r="2.2" [attr.fill]="'url(#bv-ar-rad-' + sid + ')'" />
+        <circle cx="188" cy="72" r="2.2" [attr.fill]="'url(#bv-ar-rad-' + sid + ')'" />
+        <circle cx="22" cy="238" r="2.2" [attr.fill]="'url(#bv-ar-rad-' + sid + ')'" />
+        <circle cx="188" cy="238" r="2.2" [attr.fill]="'url(#bv-ar-rad-' + sid + ')'" />
+      </g>
+
+      <g fill="none" [attr.stroke]="'url(#bv-ar-lin-' + sid + ')'" stroke-width="0.7" opacity="0.85" stroke-linecap="round">
+        <path d="M22 22 C 28 28, 28 34, 22 40" />
+        <path d="M188 22 C 182 28, 182 34, 188 40" />
+        <path d="M22 274 C 28 268, 28 262, 22 256" />
+        <path d="M188 274 C 182 268, 182 262, 188 256" />
+      </g>
+    </svg>
+
+    <!-- Minimal hairline (uses page CSS variables) -->
+    <svg
+      *ngSwitchCase="'minimal-hairline'"
+      class="border-svg border-svg--themed"
+      viewBox="0 0 210 297"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="9" y="12" width="192" height="273" rx="8" fill="none" stroke="var(--gold-soft)" stroke-width="0.35" />
+      <g fill="none" stroke="var(--gold)" stroke-width="0.35" opacity="0.45" stroke-linecap="round">
+        <path d="M16 22 L16 30 M16 22 L24 22" />
+        <path d="M194 22 L194 30 M194 22 L186 22" />
+        <path d="M16 275 L16 267 M16 275 L24 275" />
+        <path d="M194 275 L194 267 M194 275 L186 275" />
+      </g>
+    </svg>
+
+    <!-- Double frame -->
+    <svg
+      *ngSwitchCase="'double-frame'"
+      class="border-svg border-svg--themed"
+      viewBox="0 0 210 297"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="6" y="10" width="198" height="277" rx="11" fill="none" stroke="var(--gold-soft)" stroke-width="0.45" />
+      <rect x="10" y="14" width="190" height="269" rx="9" fill="none" stroke="var(--muted)" stroke-width="0.25" opacity="0.55" />
+    </svg>
+
+    <!-- Soft corner -->
+    <svg
+      *ngSwitchCase="'soft-corner'"
+      class="border-svg border-svg--themed"
+      viewBox="0 0 210 297"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="8" y="11" width="194" height="275" rx="10" fill="none" stroke="var(--gold-soft)" stroke-width="0.32" />
+      <g fill="none" stroke="var(--gold)" stroke-width="0.55" opacity="0.55" stroke-linecap="round">
+        <path d="M18 28 Q14 14 28 14" />
+        <path d="M182 28 Q196 14 196 28" />
+        <path d="M18 269 Q14 283 28 283" />
+        <path d="M182 269 Q196 283 196 269" />
+      </g>
+    </svg>
+  </ng-container>
+</div>

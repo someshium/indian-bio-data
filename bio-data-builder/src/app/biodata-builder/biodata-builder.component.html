@@ -1,0 +1,322 @@
+<div class="app">
+  <div class="topbar">
+    <div class="title">Bio-Data Builder</div>
+    <div class="subtitle">Sample details are prefilled so you can see the preview—replace them with yours. Live A4 preview + PDF on the right.</div>
+  </div>
+
+  <div class="layout">
+    <div class="form-panel">
+      <form [formGroup]="bioForm" class="form" (ngSubmit)="downloadPdf()">
+        <div class="section-block">
+          <div class="section-heading">Basic Details</div>
+
+          <label class="field">
+            <span class="label">Name *</span>
+            <input type="text" formControlName="name" placeholder="Full name" />
+          </label>
+          <div class="error" *ngIf="bioForm.get('name')?.invalid && bioForm.get('name')?.touched">
+            Name is required.
+          </div>
+
+          <div class="row">
+            <label class="field">
+              <span class="label">DOB *</span>
+              <input type="date" formControlName="dob" />
+            </label>
+
+            <label class="field">
+              <span class="label">Gender</span>
+              <input type="text" formControlName="gender" placeholder="e.g., Male / Female" />
+            </label>
+          </div>
+
+          <div class="row">
+            <label class="field">
+              <span class="label">Place of Birth</span>
+              <input type="text" formControlName="placeOfBirth" placeholder="City / District" />
+            </label>
+            <label class="field">
+              <span class="label">Blood Group</span>
+              <input type="text" formControlName="bloodGroup" placeholder="e.g., B+" />
+            </label>
+          </div>
+
+          <div class="row">
+            <label class="field">
+              <span class="label">Hindu Rashi</span>
+              <input type="text" formControlName="hinduRashi" placeholder="e.g., Mesha" />
+            </label>
+            <label class="field">
+              <span class="label">Gotra</span>
+              <input type="text" formControlName="gotra" placeholder="e.g., Bharadwaj" />
+            </label>
+          </div>
+
+          <div class="row">
+            <label class="field">
+              <span class="label">Height (ft / in)</span>
+              <div class="row row--tight">
+                <input type="number" inputmode="numeric" formControlName="heightFt" min="0" placeholder="ft" />
+                <input type="number" inputmode="numeric" formControlName="heightIn" min="0" placeholder="in" />
+              </div>
+            </label>
+            <label class="field">
+              <span class="label">Complexion</span>
+              <input type="text" formControlName="complexion" placeholder="e.g., Fair / Wheatish" />
+            </label>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <div class="section-heading">Contact</div>
+          <div class="row">
+            <label class="field">
+              <span class="label">Email</span>
+              <input type="email" formControlName="email" placeholder="name@email.com" />
+            </label>
+            <label class="field">
+              <span class="label">Phone</span>
+              <input type="tel" formControlName="phone" placeholder="+91 9XXXXXXXXX" />
+            </label>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <div class="section-heading">Profile</div>
+          <label class="field">
+            <span class="label">About</span>
+            <textarea
+              formControlName="about"
+              rows="3"
+              placeholder="A short introduction (like a matrimonial profile summary)"
+            ></textarea>
+          </label>
+          <label class="field">
+            <span class="label">Hobbies</span>
+            <input type="text" formControlName="hobbies" placeholder="Comma-separated (e.g., Reading, Travel, Music)" />
+          </label>
+        </div>
+
+        <div class="section-block">
+          <div class="section-heading">Career & Education</div>
+          <div class="row">
+            <label class="field">
+              <span class="label">Job / Role</span>
+              <input type="text" formControlName="jobTitle" placeholder="e.g., Software Engineer" />
+            </label>
+            <label class="field">
+              <span class="label">Employer</span>
+              <input type="text" formControlName="employer" placeholder="Company / Organization" />
+            </label>
+          </div>
+          <label class="field">
+            <span class="label">Education</span>
+            <input type="text" formControlName="education" placeholder="e.g., B.Tech in Computer Science" />
+          </label>
+          <div class="row">
+            <label class="field">
+              <span class="label">College</span>
+              <input type="text" formControlName="college" placeholder="College / University" />
+            </label>
+            <label class="field">
+              <span class="label">Year of Passout</span>
+              <input type="text" formControlName="passoutYear" placeholder="e.g., 2022" />
+            </label>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <div class="section-heading">Addresses <span class="optional-hint">(optional)</span></div>
+          <div formGroupName="currentAddress" class="subsection-block">
+            <div class="sub-heading">Current Address</div>
+            <label class="field">
+              <span class="label">Line 1</span>
+              <input type="text" formControlName="line1" placeholder="House / Street" />
+            </label>
+            <label class="field">
+              <span class="label">Line 2</span>
+              <input type="text" formControlName="line2" placeholder="Area / Landmark (optional)" />
+            </label>
+            <div class="row">
+              <label class="field">
+                <span class="label">City</span>
+                <input type="text" formControlName="city" />
+              </label>
+              <label class="field">
+                <span class="label">State</span>
+                <input type="text" formControlName="state" />
+              </label>
+            </div>
+            <div class="row">
+              <label class="field">
+                <span class="label">Pincode</span>
+                <input type="text" formControlName="pincode" />
+              </label>
+              <label class="field">
+                <span class="label">Country</span>
+                <input type="text" formControlName="country" />
+              </label>
+            </div>
+          </div>
+
+          <div formGroupName="permanentAddress" class="subsection-block">
+            <div class="sub-heading">Permanent Address</div>
+            <label class="field">
+              <span class="label">Line 1</span>
+              <input type="text" formControlName="line1" placeholder="House / Street" />
+            </label>
+            <label class="field">
+              <span class="label">Line 2</span>
+              <input type="text" formControlName="line2" placeholder="Area / Landmark (optional)" />
+            </label>
+            <div class="row">
+              <label class="field">
+                <span class="label">City</span>
+                <input type="text" formControlName="city" />
+              </label>
+              <label class="field">
+                <span class="label">State</span>
+                <input type="text" formControlName="state" />
+              </label>
+            </div>
+            <div class="row">
+              <label class="field">
+                <span class="label">Pincode</span>
+                <input type="text" formControlName="pincode" />
+              </label>
+              <label class="field">
+                <span class="label">Country</span>
+                <input type="text" formControlName="country" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <div class="section-heading">Family</div>
+          <div formGroupName="parents" class="subsection-block">
+            <div class="sub-heading">Father</div>
+            <div formGroupName="father">
+              <label class="field">
+                <span class="label">Father Name</span>
+                <input type="text" formControlName="name" placeholder="Father's full name" />
+              </label>
+              <label class="field">
+                <span class="label">Father Occupation</span>
+                <input type="text" formControlName="occupation" placeholder="e.g., Government Service / Business" />
+              </label>
+            </div>
+
+            <div class="sub-divider"></div>
+
+            <div class="sub-heading">Mother</div>
+            <div formGroupName="mother">
+              <label class="field">
+                <span class="label">Mother Name</span>
+                <input type="text" formControlName="name" placeholder="Mother's full name" />
+              </label>
+              <label class="field">
+                <span class="label">Mother Occupation</span>
+                <input type="text" formControlName="occupation" placeholder="e.g., Housewife / Teacher / Business" />
+              </label>
+            </div>
+          </div>
+
+          <div formGroupName="siblings" class="subsection-block">
+            <div class="sub-heading">Brother</div>
+            <div formGroupName="brother">
+              <label class="field">
+                <span class="label">Brother Name</span>
+                <input type="text" formControlName="name" placeholder="Brother's full name (optional)" />
+              </label>
+              <label class="field">
+                <span class="label">Brother Occupation / Details</span>
+                <input type="text" formControlName="occupation" placeholder="e.g., Occupation or student" />
+              </label>
+            </div>
+
+            <div class="sub-divider"></div>
+
+            <div class="sub-heading">Sister</div>
+            <div formGroupName="sister">
+              <label class="field">
+                <span class="label">Sister Name</span>
+                <input type="text" formControlName="name" placeholder="Sister's full name (optional)" />
+              </label>
+              <label class="field">
+                <span class="label">Sister Occupation / Details</span>
+                <input type="text" formControlName="occupation" placeholder="e.g., Occupation or student" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <div class="section-heading">Photo & Marriage Notes</div>
+
+          <label class="field">
+            <span class="label">Upload Photograph (fits on the bio-data)</span>
+            <input type="file" accept="image/*" (change)="onPhotoSelected($event)" />
+          </label>
+
+          <div class="row">
+            <label class="field">
+              <span class="label">Manglik <span class="optional-hint">(optional)</span></span>
+              <select formControlName="manglik">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </label>
+            <label class="field">
+              <span class="label">Diet</span>
+              <input type="text" formControlName="diet" placeholder="e.g., Veg / Jain" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span class="label">Marriage Preferences</span>
+            <textarea formControlName="marriagePreferences" rows="3" placeholder="Any marriage-specific preferences"></textarea>
+          </label>
+
+          <label class="field">
+            <span class="label">Other Information</span>
+            <textarea formControlName="otherInformation" rows="3" placeholder="Add other marriage-purpose details"></textarea>
+          </label>
+        </div>
+      </form>
+    </div>
+
+    <div class="preview-panel">
+      <div class="design-picker">
+        <div class="design-title">Choose Design</div>
+        <div class="design-grid">
+          <button
+            type="button"
+            class="design-card"
+            *ngFor="let d of designs"
+            [class.active]="designId === d.id"
+            (click)="designId = d.id"
+          >
+            <div class="thumb" aria-hidden="true">
+              <app-biodata-design-border [borderArtId]="d.borderArtId" [svgIdSuffix]="d.id"></app-biodata-design-border>
+            </div>
+            <div class="design-name">{{ d.name }}</div>
+            <div class="design-sub">{{ d.subtitle }}</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="preview-surface" role="region" aria-label="Bio-data preview">
+        <app-biodata-preview [bioData]="bioData" [design]="activeDesign"></app-biodata-preview>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="download" (click)="downloadPdf()" [disabled]="downloading">
+          {{ downloading ? 'Generating PDF...' : 'Download PDF' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

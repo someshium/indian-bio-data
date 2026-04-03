@@ -1,0 +1,4 @@
+/* Hide the Angular scaffold placeholder content; we only show routed pages. */
+main.main {
+  display: none !important;
+}

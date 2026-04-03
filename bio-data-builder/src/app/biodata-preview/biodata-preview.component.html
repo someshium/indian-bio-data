@@ -1,0 +1,184 @@
+<div
+  #pageRoot
+  class="page"
+  [ngClass]="{
+    'layout-stack': design.layout === 'stack',
+    'layout-split-top': design.layout === 'split-top' || design.layout === 'split-top-ledger',
+    'layout-ledger': design.layout === 'split-top-ledger',
+  }"
+  [ngStyle]="pageStyle()"
+>
+  <app-biodata-design-border [borderArtId]="design.borderArtId" [svgIdSuffix]="'pv-' + design.id"></app-biodata-design-border>
+
+  <div
+    class="page-inner"
+    [class.page-inner--ledger]="design.layout === 'split-top-ledger'"
+    [class.page-inner--horizon-gold]="design.id === 'horizon-gold'"
+  >
+    <!-- Photo + essentials only — About follows right below for readability -->
+    <div class="header" [class.header--split]="design.layout !== 'stack'">
+      <div class="photo-wrap">
+        <div class="photo-card">
+          <img
+            *ngIf="bioData.photoDataUrl; else placeholder"
+            class="photo"
+            [src]="bioData.photoDataUrl"
+            alt="Profile photo"
+          />
+          <ng-template #placeholder>
+            <div class="photo placeholder">Photo</div>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="identity">
+        <div class="name">{{ bioData.name || 'Your Name' }}</div>
+        <div
+          class="sub"
+          *ngIf="hasAny(bioData.dob, bioData.gender) || hasText(ageText(bioData.dob))"
+        >
+          <span *ngIf="hasText(ageText(bioData.dob))">Age {{ ageText(bioData.dob) }}</span>
+          <span *ngIf="hasText(ageText(bioData.dob)) && bioData.dob"> · </span>
+          <span *ngIf="bioData.dob">DOB {{ formatDob(bioData.dob) }}</span>
+          <span *ngIf="(bioData.dob || hasText(ageText(bioData.dob))) && bioData.gender"> · </span>
+          <span *ngIf="bioData.gender">{{ bioData.gender }}</span>
+        </div>
+
+        <div class="contact" *ngIf="hasAny(bioData.phone, bioData.email)">
+          <span *ngIf="hasText(bioData.phone)">{{ bioData.phone }}</span>
+          <span *ngIf="hasText(bioData.phone) && hasText(bioData.email)"> · </span>
+          <span *ngIf="hasText(bioData.email)">{{ bioData.email }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content" [class.content--ledger]="design.layout === 'split-top-ledger'">
+      <div class="section section--about" *ngIf="hasText(bioData.about)">
+        <div class="section-title">About</div>
+        <div class="paragraph">{{ bioData.about }}</div>
+      </div>
+
+      <div class="section" *ngIf="quickLines().length">
+        <div class="section-title">Profile details</div>
+        <div class="stack">
+          <div class="line-row" *ngFor="let row of quickLines()">
+            <span class="attr">{{ row.label }}</span>
+            <span class="sep" aria-hidden="true">—</span>
+            <span class="val">{{ row.value }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" *ngIf="careerLines().length">
+        <div class="section-title">Career &amp; Education</div>
+        <div class="stack">
+          <div class="line-row" *ngFor="let row of careerLines()">
+            <span class="attr">{{ row.label }}</span>
+            <span class="sep" aria-hidden="true">—</span>
+            <span class="val">{{ row.value }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="section"
+        *ngIf="
+          hasAny(
+            bioData.parents.father.name,
+            bioData.parents.father.occupation,
+            bioData.parents.mother.name,
+            bioData.parents.mother.occupation,
+            bioData.siblings.brother.name,
+            bioData.siblings.brother.occupation,
+            bioData.siblings.sister.name,
+            bioData.siblings.sister.occupation
+          )
+        "
+      >
+        <div class="section-title">Family</div>
+        <div class="stack stack--family" *ngIf="hasAny(bioData.parents.father.name, bioData.parents.father.occupation)">
+          <div class="subhead">Father</div>
+          <div class="line-row" *ngIf="hasText(bioData.parents.father.name)">
+            <span class="attr">Name</span>
+            <span class="sep" aria-hidden="true">—</span>
+            <span class="val">{{ bioData.parents.father.name }}</span>
+          </div>
+          <div class="line-row" *ngIf="hasText(bioData.parents.father.occupation)">
+            <span class="attr">Occupation</span>
+            <span class="sep" aria-hidden="true">—</span>
+            <span class="val">{{ bioData.parents.father.occupation }}</span>
+          </div>
+        </div>
+        <div class="stack stack--family" *ngIf="hasAny(bioData.parents.mother.name, bioData.parents.mother.occupation)">
+          <div class="subhead">Mother</div>
+          <div class="line-row" *ngIf="hasText(bioData.parents.mother.name)">
+            <span class="attr">Name</span>
+            <span class="sep" aria-hidden="true">—</span>
+            <span class="val">{{ bioData.parents.mother.name }}</span>
+          </div>
+          <div class="line-row" *ngIf="hasText(bioData.parents.mother.occupation)">
+            <span class="attr">Occupation</span>
+            <span class="sep" aria-hidden="true">—</span>
+            <span class="val">{{ bioData.parents.mother.occupation }}</span>
+          </div>
+        </div>
+        <div class="stack stack--family" *ngIf="hasAny(bioData.siblings.brother.name, bioData.siblings.brother.occupation)">
+          <div class="subhead">Brother</div>
+          <div class="line-row" *ngIf="hasText(bioData.siblings.brother.name)">
+            <span class="attr">Name</span>
+            <span class="sep" aria-hidden="true">—</span>
+            <span class="val">{{ bioData.siblings.brother.name }}</span>
+          </div>
+          <div class="line-row" *ngIf="hasText(bioData.siblings.brother.occupation)">
+            <span class="attr">Occupation</span>
+            <span class="sep" aria-hidden="true">—</span>
+            <span class="val">{{ bioData.siblings.brother.occupation }}</span>
+          </div>
+        </div>
+        <div class="stack stack--family" *ngIf="hasAny(bioData.siblings.sister.name, bioData.siblings.sister.occupation)">
+          <div class="subhead">Sister</div>
+          <div class="line-row" *ngIf="hasText(bioData.siblings.sister.name)">
+            <span class="attr">Name</span>
+            <span class="sep" aria-hidden="true">—</span>
+            <span class="val">{{ bioData.siblings.sister.name }}</span>
+          </div>
+          <div class="line-row" *ngIf="hasText(bioData.siblings.sister.occupation)">
+            <span class="attr">Occupation</span>
+            <span class="sep" aria-hidden="true">—</span>
+            <span class="val">{{ bioData.siblings.sister.occupation }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" *ngIf="hasHobbies()">
+        <div class="section-title">Hobbies</div>
+        <div class="chips">
+          <span class="chip" *ngFor="let h of bioData.hobbies">{{ h }}</span>
+        </div>
+      </div>
+
+      <div class="section" *ngIf="hasAddress(bioData.currentAddress) || hasAddress(bioData.permanentAddress)">
+        <div class="section-title">Address</div>
+        <div class="stack">
+          <div *ngIf="hasAddress(bioData.currentAddress)">
+            <div class="subhead">Current</div>
+            <div class="addr-line" *ngFor="let line of addressLines(bioData.currentAddress)">{{ line }}</div>
+          </div>
+          <div *ngIf="hasAddress(bioData.permanentAddress)">
+            <div class="subhead">Permanent</div>
+            <div class="addr-line" *ngFor="let line of addressLines(bioData.permanentAddress)">{{ line }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" *ngIf="hasAny(bioData.marriagePreferences, bioData.otherInformation)">
+        <div class="section-title">Marriage details</div>
+        <div class="notes">
+          <div class="line" *ngIf="hasText(bioData.marriagePreferences)">{{ bioData.marriagePreferences }}</div>
+          <div class="divider-line" *ngIf="hasText(bioData.marriagePreferences) && hasText(bioData.otherInformation)"></div>
+          <div class="line" *ngIf="hasText(bioData.otherInformation)">{{ bioData.otherInformation }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

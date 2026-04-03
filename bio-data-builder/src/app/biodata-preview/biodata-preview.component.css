@@ -1,0 +1,377 @@
+/* Optional: add Coldiac-Regular.woff2 to src/assets/fonts/ for the authentic Coldiac look */
+@font-face {
+  font-family: 'Coldiac';
+  src: url('/assets/fonts/Coldiac-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.page {
+  /* Fallbacks; real values come from [ngStyle] per design theme */
+  --ink: #2a2318;
+  --ink-soft: rgba(42, 35, 24, 0.72);
+  --muted: rgba(42, 35, 24, 0.52);
+  --gold: #9a7b3c;
+  --gold-soft: rgba(154, 123, 60, 0.35);
+  --cream: #faf7f1;
+  --cream-deep: #f3ebe0;
+  --ledger-inset: 9mm;
+
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  border-radius: 6mm;
+  overflow: hidden;
+  font-family: 'Coldiac', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+}
+
+.page-inner {
+  position: absolute;
+  inset: 0;
+  padding: 10mm 11mm 12mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 100%;
+}
+
+.page-inner--horizon-gold {
+  /* Tighter than default: frame sits nearer page edge; extra vertical room for content */
+  padding: 6.5mm 8mm 7.5mm;
+}
+
+.page-inner--horizon-gold .header,
+.page-inner--horizon-gold .section {
+  max-width: min(186mm, 100%);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 156mm;
+  padding-bottom: 4mm;
+  margin-bottom: 3mm;
+  border-bottom: 0.3mm solid var(--gold-soft);
+}
+
+.header--split {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6mm;
+  text-align: left;
+}
+
+.header--split .photo-wrap {
+  width: auto;
+  margin-bottom: 0;
+  flex: 0 0 auto;
+  justify-content: flex-start;
+}
+
+.header--split .photo-card {
+  width: 40mm;
+  height: 48mm;
+}
+
+.header--split .identity {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.header--split .name,
+.header--split .sub,
+.header--split .contact {
+  text-align: left;
+}
+
+.header--split .stack {
+  align-items: flex-start;
+}
+
+.header--split .line-row {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.page-inner--ledger .header--split {
+  max-width: 156mm;
+  width: 100%;
+  padding-left: var(--ledger-inset);
+  padding-right: var(--ledger-inset);
+  box-sizing: border-box;
+}
+
+.identity {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name {
+  font-family: 'Coldiac', 'Cormorant Garamond', Georgia, serif;
+  font-size: 22pt;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  word-break: break-word;
+  line-height: 1.15;
+}
+
+.sub {
+  margin-top: 1.5mm;
+  font-size: 11.5pt;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.contact {
+  margin-top: 2mm;
+  font-size: 11pt;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.stack {
+  width: 100%;
+  margin-top: 3mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8mm;
+}
+
+.stack--family {
+  margin-top: 2mm;
+  margin-bottom: 2mm;
+}
+
+.line-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0 2mm;
+  max-width: 100%;
+  font-size: 11.2pt;
+  line-height: 1.35;
+}
+
+.attr {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 10pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: 'Coldiac', 'Cormorant Garamond', Georgia, serif;
+}
+
+.sep {
+  color: var(--gold-soft);
+  font-weight: 400;
+  padding: 0 0.5mm;
+}
+
+.val {
+  color: var(--ink);
+  font-weight: 600;
+  font-family: 'Coldiac', 'Cormorant Garamond', Georgia, serif;
+}
+
+.section {
+  margin-top: 4.5mm;
+  width: 100%;
+  max-width: 156mm;
+}
+
+/* About sits directly under photo + name for all layouts */
+.section--about {
+  margin-top: 2.5mm;
+  padding-top: 1mm;
+}
+
+.section-title {
+  font-size: 10pt;
+  font-weight: 700;
+  margin-bottom: 2mm;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-family: 'Coldiac', 'Cormorant Garamond', Georgia, serif;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content--ledger {
+  align-items: stretch;
+  max-width: 156mm;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--ledger-inset);
+  padding-right: var(--ledger-inset);
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.content--ledger .section {
+  max-width: none;
+  width: 100%;
+  text-align: left;
+}
+
+.content--ledger .section-title {
+  text-align: left;
+}
+
+.content--ledger .paragraph,
+.content--ledger .notes,
+.content--ledger .addr-line {
+  text-align: left;
+}
+
+.content--ledger .stack {
+  align-items: flex-start;
+}
+
+.content--ledger .line-row {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.content--ledger .chips {
+  justify-content: flex-start;
+}
+
+.content--ledger .divider-line {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.paragraph {
+  font-size: 11.5pt;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  font-weight: 500;
+  text-align: center;
+}
+
+.photo-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3mm;
+}
+
+.photo-card {
+  width: 46mm;
+  height: 56mm;
+  border: 0.4mm solid var(--gold-soft);
+  border-radius: 3mm;
+  overflow: hidden;
+  background: var(--cream-deep);
+  box-shadow: 0 1mm 3mm rgba(42, 35, 24, 0.08);
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10pt;
+  color: var(--muted);
+  font-family: 'Coldiac', 'Cormorant Garamond', Georgia, serif;
+}
+
+.subhead {
+  font-size: 10.5pt;
+  font-weight: 700;
+  margin-bottom: 1.5mm;
+  color: var(--ink);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.value-block {
+  font-size: 11pt;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.addr-line {
+  font-size: 11pt;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.notes {
+  font-size: 11.2pt;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  font-weight: 500;
+  text-align: center;
+}
+
+.line {
+  margin-top: 1mm;
+}
+
+.divider-line {
+  height: 0.25mm;
+  background: var(--gold-soft);
+  margin: 3mm auto 2mm;
+  width: 60%;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2mm;
+}
+
+/* Semi-transparent chip fill without color-mix(): html2canvas does not support color-mix() and throws during PDF capture. */
+.chip {
+  position: relative;
+  display: inline-block;
+  padding: 1.2mm 2.6mm;
+  border-radius: 999px;
+  border: 0.25mm solid var(--gold-soft);
+  background: transparent;
+  isolation: isolate;
+  font-size: 10.5pt;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.chip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--cream-deep);
+  opacity: 0.55;
+  z-index: -1;
+}

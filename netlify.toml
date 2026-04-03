@@ -1,0 +1,19 @@
+# Netlify builds the Angular app in bio-data-builder/ and publishes static output.
+# SPA fallback: all routes serve index.html so Angular Router works on refresh.
+#
+# If your Git repository root is only the "bio-data-builder" folder (no parent),
+# move this file next to that folder's package.json and remove the [build] "base" line,
+# keeping command, publish, redirects, and [build.environment] as-is.
+
+[build]
+  base = "bio-data-builder"
+  command = "npm ci && npm run build"
+  publish = "dist/bio-data-builder/browser"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
