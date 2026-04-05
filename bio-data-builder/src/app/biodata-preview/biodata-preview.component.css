@@ -37,13 +37,23 @@
   max-width: 100%;
 }
 
-.page-inner--horizon-gold {
-  /* Tighter than default: frame sits nearer page edge; extra vertical room for content */
+.page-inner--tight-frame {
+  /* Tighter than default: less gap between border art and content; matches Horizon Gold ledger spacing */
   padding: 6.5mm 8mm 7.5mm;
 }
 
-.page-inner--horizon-gold .header,
-.page-inner--horizon-gold .section {
+.page-inner--tight-frame .header,
+.page-inner--tight-frame .section {
+  max-width: min(186mm, 100%);
+}
+
+/* Arch frame SVG is inset like mandala; keep top padding inside the stroke (tight-frame 6.5mm sat above old y=11 rect). */
+.page-inner--arch-expanded {
+  padding: 10mm 9mm 10.5mm;
+}
+
+.page-inner--arch-expanded .header,
+.page-inner--arch-expanded .section {
   max-width: min(186mm, 100%);
 }
 

@@ -13,7 +13,8 @@
   <div
     class="page-inner"
     [class.page-inner--ledger]="design.layout === 'split-top-ledger'"
-    [class.page-inner--horizon-gold]="design.id === 'horizon-gold'"
+    [class.page-inner--tight-frame]="design.id === 'horizon-gold'"
+    [class.page-inner--arch-expanded]="design.id === 'ledger-arch' || design.id === 'gilded-arch-ledger'"
   >
     <!-- Photo + essentials only — About follows right below for readability -->
     <div class="header" [class.header--split]="design.layout !== 'stack'">

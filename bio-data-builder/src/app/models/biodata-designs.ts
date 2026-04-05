@@ -2,6 +2,7 @@ export type BorderArtId =
   | 'silver-vine'
   | 'golden-mandala'
   | 'silver-arch'
+  | 'golden-arch'
   | 'minimal-hairline'
   | 'double-frame'
   | 'soft-corner';
@@ -88,6 +89,25 @@ export const BIO_DATA_DESIGNS: BioDataDesign[] = [
       accentSoft: 'rgba(111, 125, 134, 0.35)',
       cream: '#f8f6f2',
       creamDeep: '#ebe6dc',
+      ledgerInset: '11mm',
+    },
+  },
+  {
+    id: 'gilded-arch-ledger',
+    name: 'Gilded Arch Ledger',
+    subtitle: 'Gold arch frame · ledger body',
+    borderArtId: 'golden-arch',
+    layout: 'split-top-ledger',
+    theme: {
+      pageBg: '#fbf6ec',
+      pageGradient: 'linear-gradient(165deg, #fff9ef 0%, #f7ecdc 55%, #f3e4d0 100%)',
+      ink: '#2c2418',
+      inkSoft: 'rgba(44, 36, 24, 0.82)',
+      muted: 'rgba(44, 36, 24, 0.5)',
+      accent: '#9a7340',
+      accentSoft: 'rgba(154, 115, 64, 0.38)',
+      cream: '#fbf6ec',
+      creamDeep: '#f2e3cf',
       ledgerInset: '11mm',
     },
   },

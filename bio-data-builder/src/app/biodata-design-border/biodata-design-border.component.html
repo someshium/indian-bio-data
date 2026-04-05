@@ -133,7 +133,7 @@
       />
     </svg>
 
-    <!-- Silver Arch -->
+    <!-- Silver Arch — expanded to page edge; single frame (no interior flourishes) -->
     <svg
       *ngSwitchCase="'silver-arch'"
       class="border-svg"
@@ -147,66 +147,48 @@
           <stop offset="0.7" stop-color="#f9fdff" stop-opacity="0.85" />
           <stop offset="1" stop-color="#b9cbd6" stop-opacity="0.5" />
         </linearGradient>
-        <radialGradient [attr.id]="'bv-ar-rad-' + sid" cx="0.5" cy="0.5" r="0.6">
-          <stop offset="0" stop-color="#ffffff" stop-opacity="0.95" />
-          <stop offset="1" stop-color="#c8d5df" stop-opacity="0" />
-        </radialGradient>
       </defs>
 
       <rect
-        x="6.5"
-        y="11"
-        width="197"
-        height="275"
+        x="2.75"
+        y="3.5"
+        width="204.5"
+        height="290"
         rx="10"
         fill="none"
         [attr.stroke]="'url(#bv-ar-lin-' + sid + ')'"
-        stroke-width="1.1"
+        stroke-width="1.15"
+        opacity="0.95"
       />
+    </svg>
 
-      <path
-        d="M30 35 C 65 5, 145 5, 180 35"
-        fill="none"
-        [attr.stroke]="'url(#bv-ar-lin-' + sid + ')'"
-        stroke-width="0.85"
-        stroke-linecap="round"
-      />
-      <path
-        d="M30 262 C 65 292, 145 292, 180 262"
-        fill="none"
-        [attr.stroke]="'url(#bv-ar-lin-' + sid + ')'"
-        stroke-width="0.85"
-        stroke-linecap="round"
-      />
+    <!-- Golden Arch — same geometry as silver-arch, warm gold palette -->
+    <svg
+      *ngSwitchCase="'golden-arch'"
+      class="border-svg"
+      viewBox="0 0 210 297"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient [attr.id]="'bv-ga-lin-' + sid" x1="0" y1="0" x2="0" y2="297">
+          <stop offset="0" stop-color="#f7e0a6" stop-opacity="0.85" />
+          <stop offset="0.28" stop-color="#d6a73b" stop-opacity="0.65" />
+          <stop offset="0.55" stop-color="#f6d36a" stop-opacity="0.92" />
+          <stop offset="1" stop-color="#8a5c1c" stop-opacity="0.45" />
+        </linearGradient>
+      </defs>
 
-      <path
-        d="M15 58 C 22 70, 22 82, 15 94 C 22 106, 22 118, 15 130"
+      <rect
+        x="2.75"
+        y="3.5"
+        width="204.5"
+        height="290"
+        rx="10"
         fill="none"
-        [attr.stroke]="'url(#bv-ar-lin-' + sid + ')'"
-        stroke-width="0.8"
-        stroke-linecap="round"
+        [attr.stroke]="'url(#bv-ga-lin-' + sid + ')'"
+        stroke-width="1.15"
+        opacity="0.95"
       />
-      <path
-        d="M195 58 C 188 70, 188 82, 195 94 C 188 106, 188 118, 195 130"
-        fill="none"
-        [attr.stroke]="'url(#bv-ar-lin-' + sid + ')'"
-        stroke-width="0.8"
-        stroke-linecap="round"
-      />
-
-      <g opacity="0.9">
-        <circle cx="22" cy="72" r="2.2" [attr.fill]="'url(#bv-ar-rad-' + sid + ')'" />
-        <circle cx="188" cy="72" r="2.2" [attr.fill]="'url(#bv-ar-rad-' + sid + ')'" />
-        <circle cx="22" cy="238" r="2.2" [attr.fill]="'url(#bv-ar-rad-' + sid + ')'" />
-        <circle cx="188" cy="238" r="2.2" [attr.fill]="'url(#bv-ar-rad-' + sid + ')'" />
-      </g>
-
-      <g fill="none" [attr.stroke]="'url(#bv-ar-lin-' + sid + ')'" stroke-width="0.7" opacity="0.85" stroke-linecap="round">
-        <path d="M22 22 C 28 28, 28 34, 22 40" />
-        <path d="M188 22 C 182 28, 182 34, 188 40" />
-        <path d="M22 274 C 28 268, 28 262, 22 256" />
-        <path d="M188 274 C 182 268, 182 262, 188 256" />
-      </g>
     </svg>
 
     <!-- Minimal hairline (uses page CSS variables) -->
